@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Splashscreen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cyan-bg {
+      position: absolute;
+      top: -60vh;
+      left: -25vw;
+      width: 150vw;
+      height: 140vh;
+      background-color: #31C2CD;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .top-section {
+      height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 85px;
+      object-fit: contain;
+      margin-bottom: 8px;
+    }
+
+    .bottom-section {
+      height: 15vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 1vh;
+    }
+
+    .btn-mulai {
+      background-color: #31C2CD;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 90px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .btn-mulai:hover {
+      background-color: #2BAEBA;
+    }
+
+    .btn-mulai:active {
+      transform: scale(0.95);
+    }
+
+    @media (max-width: 768px) {
+      .cyan-bg {
+        width: 250vw;
+        left: -75vw;
+        height: 130vh;
+        top: -45vh;
+      }
+      .logo-img {
+        height: 60px;
+      }
+      .btn-mulai {
+        padding: 12px 70px;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cyan-bg"></div>
+
+<div class="content">
+
+  <div class="top-section">
+    <img src="../Splashscreen/img/Group 107.png" alt="Logo PuPoP" class="logo-img" style="height: fit-content">
+  </div>
+
+  <div class="bottom-section">
+    <button id="btnMulai" class="btn-mulai">Mulai</button>
+  </div>
+
+</div>
+
+<script>
+  document.getElementById('btnMulai').addEventListener('click', function() {
+    this.style.transform = 'scale(0.95)';
+
+    setTimeout(() => {
+      this.style.transform = 'scale(1)';
+      window.location.href = '../Signin/signin.php';
+    }, 150);
+  });
+</script>
+</body>
+</html>

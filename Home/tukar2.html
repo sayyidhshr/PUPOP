@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sukses Penukaran - PuPoP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f7fafc;
+      color: #2d3748;
+      padding-bottom: 60px;
+    }
+
+    .header-wrapper {
+      background: #2BB6C4;
+      padding: 24px;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.08);
+    }
+
+    .header-card {
+      background: white;
+      border-radius: 24px;
+      height: 73px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 30px;
+    }
+
+    .back-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #EAF9FA;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #2BB6C4;
+      transition: background 0.2s;
+    }
+
+    .back-btn:hover {
+      background-color: #d1f0f2;
+    }
+
+    .header-text h2 {
+      color: #2BB6C4;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .header-text p {
+      color: #718096;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .content-container {
+      max-width: 1060px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .success-card {
+      background: white;
+      border-radius: 32px;
+      border: 1px solid #E2E8F0;
+      padding: 50px 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .mascot-wrapper {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mascot-wrapper img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .success-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1A202C;
+      margin-bottom: 10px;
+    }
+
+    .success-subtitle {
+      font-size: 14px;
+      color: #718096;
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .details-box {
+      width: 100%;
+      max-width: 780px;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 30px;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #EDF2F7;
+      font-size: 15px;
+      color: #4A5568;
+      font-weight: 500;
+    }
+
+    .detail-value-dark {
+      color: #00796B;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .poin-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .poin-num {
+      color: #00796B;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .poin-badge {
+      background-color: #EAF9FA;
+      color: #2BB6C4;
+      padding: 4px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .lokasi-section-title {
+      font-size: 14px;
+      color: #718096;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .alamat-banner {
+      background-color: #F7FAFC;
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border: 1px solid #E2E8F0;
+    }
+
+    .pin-icon {
+      color: #00796B;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .alamat-text {
+      font-size: 14px;
+      color: #2D3748;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .btn-selesai {
+      width: 100%;
+      max-width: 480px;
+      background-color: #38C6D5;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(56, 198, 213, 0.25);
+      transition: background 0.2s;
+    }
+
+    .btn-selesai:hover {
+      background-color: #2bb6c4;
+    }
+
+    @media (max-width: 768px) {
+      .success-card { padding: 35px 20px; }
+      .detail-row { font-size: 14px; }
+      .alamat-banner { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header-wrapper">
+  <div class="header-card">
+    <button class="back-btn" id="btnBack" aria-label="Kembali" onclick="history.back()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+    </button>
+    <div class="header-text">
+      <h2>Penukaran</h2>
+      <p>Tukar poinmu disini..</p>
+    </div>
+  </div>
+</div>
+
+<div class="content-container">
+  <div class="success-card">
+
+    <div class="mascot-wrapper">
+      <img src="../Home/img/gamm.png" alt="Sukses">
+    </div>
+
+    <h1 class="success-title">Sukses Tukar Produk</h1>
+    <p class="success-subtitle">Yeayy, terima kasih sudah menukar poin dengan produk</p>
+
+    <div class="details-box">
+
+      <div class="detail-row">
+        <span>Jumlah produk</span>
+        <span class="detail-value-dark" id="resJumlah">2</span>
+      </div>
+
+      <div class="detail-row">
+        <span>Total poin ditukar</span>
+        <div class="poin-container">
+          <span class="poin-num" id="resPoin">60</span>
+          <span class="poin-badge">Poin</span>
+        </div>
+      </div>
+
+      <div class="lokasi-section-title">Lokasi Tukar</div>
+      <div class="alamat-banner">
+        <div class="pin-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+        <div class="alamat-text" id="resLokasi">
+          Jl. In dulu aja, No. 69, Malang Utara, Mitra 2 - Kec. Cibaduyut
+        </div>
+      </div>
+
+    </div>
+
+    <button class="btn-selesai" id="btnSelesai">Selesai</button>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+
+    const dataKeranjang = JSON.parse(localStorage.getItem('pupop_cart')) || [];
+
+    let totalBarang = 0;
+    dataKeranjang.forEach(item => {
+      totalBarang += item.qty;
+    });
+
+    let totalPoin = totalBarang * 30;
+
+    document.getElementById("resJumlah").textContent = totalBarang;
+    document.getElementById("resPoin").textContent = totalPoin;
+
+    const lokasiTerpilih = localStorage.getItem('pupop_lokasi');
+    if (lokasiTerpilih) {
+      document.getElementById("resLokasi").textContent = lokasiTerpilih;
+    }
+
+    document.getElementById("btnBack").addEventListener("click", function() {
+      window.history.back();
+    });
+
+    document.getElementById("btnSelesai").addEventListener("click", function() {
+
+      localStorage.removeItem('pupop_cart');
+
+      window.location.href = "../Home/home.html";
+    });
+
+  });
+</script>
+</body>
+</html>

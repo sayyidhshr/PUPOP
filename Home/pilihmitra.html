@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilih Mitra</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#f4f4f4;
+    }
+
+    .header-wrapper{
+      background:#2BB6C4;
+      padding:24px;
+      border-radius:0 0 40px 40px;
+      box-shadow:0 8px 25px rgba(0,0,0,.08);
+    }
+
+    .header-card{
+      background:white;
+      border-radius:24px;
+      height:73px;
+
+      display:flex;
+      align-items:center;
+      gap:20px;
+
+      padding:0 30px;
+    }
+
+    .back-btn{
+      width:38px;
+      height:38px;
+
+      border:none;
+      border-radius:50%;
+
+      background:#E8F8FA;
+      color:#0E7D88;
+
+      font-size:24px;
+      cursor:pointer;
+    }
+
+    .header-title{
+      color:#40C4D4;
+      font-size:22px;
+      font-weight:700;
+    }
+
+    .header-subtitle{
+      color:#666;
+      font-size:14px;
+      margin-top:2px;
+    }
+
+    .content{
+      padding:30px 24px;
+    }
+
+    .main-card{
+      background:white;
+      border-radius:28px;
+
+      height:600px;
+
+      display:flex;
+
+      overflow:hidden;
+
+      border:1px solid #d8d8d8;
+
+      box-shadow:0 3px 15px rgba(0,0,0,.08);
+    }
+
+    .sidebar{
+      width:480px;
+      padding:28px;
+
+      border-right:1px solid #cfcfcf;
+    }
+
+    .radio-group{
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+    }
+
+    .radio-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .radio-row span{
+      font-size:18px;
+      font-weight:600;
+    }
+
+    .radio-row input{
+      appearance:none;
+
+      width:26px;
+      height:26px;
+
+      border-radius:50%;
+
+      border:1px solid #aaa;
+      cursor:pointer;
+    }
+
+    .radio-row input:checked{
+      background:#40C4D4;
+      border:4px solid white;
+      box-shadow:0 0 0 1px #40C4D4;
+    }
+
+    .search-input{
+      width:100%;
+      height:46px;
+
+      border:none;
+      outline:none;
+
+      background:#f1f1f1;
+
+      border-radius:24px;
+
+      padding:0 20px;
+
+      margin-top:22px;
+
+      font-size:18px;
+    }
+
+    .tabs{
+      display:flex;
+      justify-content:space-between;
+
+      margin-top:12px;
+
+      border-bottom:1px solid #d7d7d7;
+    }
+
+    .tab{
+      position:relative;
+
+      border:none;
+      background:none;
+
+      padding:12px 14px;
+
+      font-weight:600;
+
+      cursor:pointer;
+
+      color:#888;
+    }
+
+    .tab.active{
+      color:#40C4D4;
+    }
+
+    .tab.active::after{
+      content:"";
+
+      position:absolute;
+
+      left:0;
+      bottom:-1px;
+
+      width:100%;
+      height:4px;
+
+      border-radius:20px;
+
+      background:#40C4D4;
+    }
+
+
+    .partner-card{
+      margin-top:18px;
+
+      display:flex;
+      gap:16px;
+
+      padding:14px;
+
+      border-radius:18px;
+
+      border:1px solid #d7d7d7;
+
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .partner-card.active{
+      border-color:#40C4D4;
+    }
+
+    .partner-card:hover{
+      transform:translateY(-2px);
+    }
+
+    .partner-icon{
+      width:94px;
+      height:94px;
+
+      border-radius:14px;
+
+      background:#40C4D4;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .partner-icon img{
+      width:54px;
+    }
+
+    .partner-info h3{
+      font-size:18px;
+      margin-bottom:6px;
+    }
+
+    .partner-info p{
+      color:#777;
+      font-size:14px;
+    }
+
+    .partner-info small{
+      color:#777;
+      font-size:13px;
+    }
+
+    .selected{
+      margin-top:24px;
+    }
+
+    .selected h2{
+      font-size:18px;
+      margin-bottom:12px;
+    }
+
+    .selected p{
+      color:#777;
+      line-height:1.7;
+      font-weight:500;
+    }
+
+
+    .action-buttons{
+      display:flex;
+      gap:22px;
+
+      margin-top:24px;
+    }
+
+    .btn{
+      flex:1;
+      height:66px;
+
+      border-radius:22px;
+
+      font-size:18px;
+      font-weight:600;
+
+      cursor:pointer;
+    }
+
+    .btn-outline{
+      border:1.5px solid #40C4D4;
+      background:white;
+      color:#40C4D4;
+      box-shadow: 2px 2px 2px rgb(128 128 128 / 0.65);
+    }
+
+    .btn-primary{
+      border:none;
+      background:#40C4D4;
+      color:white;
+    }
+
+
+    .map-section{
+      flex:1;
+      padding:24px;
+    }
+
+    .map-container{
+      width:100%;
+      height:100%;
+
+      position:relative;
+
+      border-radius:24px;
+      overflow:hidden;
+    }
+
+    .map-container img.map{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .map-popup img{
+      width:42px;
+    }
+
+    .map-popup h4{
+      font-size:16px;
+    }
+
+    .map-popup p{
+      font-size:11px;
+      color:#666;
+    }
+
+    .map-popup small{
+      font-size:10px;
+      color:#666;
+    }
+
+    @media(max-width:1100px){
+
+      .main-card{
+        flex-direction:column;
+        height:auto;
+      }
+
+      .sidebar{
+        width:100%;
+        border-right:none;
+        border-bottom:1px solid #ddd;
+      }
+
+      .map-section{
+        height:500px;
+      }
+
+    }
+    .custom-popup{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.4);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+    }
+
+    .popup-content{
+      background:white;
+      padding:24px;
+      border-radius:20px;
+      width:320px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,.2);
+    }
+
+    .popup-content h3{
+      color:#40C4D4;
+      margin-bottom:10px;
+    }
+
+    .popup-content p{
+      margin-bottom:20px;
+      color:#555;
+    }
+
+    .popup-content button{
+      border:none;
+      background:#40C4D4;
+      color:white;
+      padding:10px 24px;
+      border-radius:12px;
+      cursor:pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="header-wrapper">
+
+  <div class="header-card">
+
+    <button class="back-btn" id="btnBack"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline>
+    </svg></button>
+
+    <div>
+      <div class="header-title">
+        Pilih Mitra Anda
+      </div>
+
+      <div class="header-subtitle">
+        Mitra favorit kamu
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="content">
+
+  <div class="main-card">
+
+    <div class="sidebar">
+
+      <div class="radio-group">
+
+        <label class="radio-row">
+          <span>Sering di pilih</span>
+          <input type="radio" checked name="mitra">
+        </label>
+
+        <label class="radio-row">
+          <span>Cari Berdasarkan Kota</span>
+          <input type="radio" name="mitra">
+        </label>
+
+      </div>
+
+      <input
+        class="search-input"
+        type="text"
+        placeholder="Kota"
+      >
+
+      <div class="tabs">
+        <button class="tab">
+          List
+        </button>
+
+        <button class="tab active">
+          Lokasi
+        </button>
+      </div>
+
+      <div class="partner-card active" id="partnerCard">
+
+        <div class="partner-icon">
+          <img src="../Home/img/log.png">
+        </div>
+
+        <div class="partner-info">
+          <h3>Mitra-1</h3>
+          <p>Kabupaten Malang</p>
+          <small>Buka: 08.00 - 22.00 PM</small>
+        </div>
+
+      </div>
+
+      <div class="selected">
+
+        <h2>Mitra di pilih</h2>
+
+        <p>
+          Supiturang, Bocek,
+          Kec. Karang Ploso,
+          Kabupaten Malang
+        </p>
+
+      </div>
+
+      <div class="action-buttons">
+
+        <button class="btn btn-outline" id="cancelBtn">
+          Batal
+        </button>
+        <button class="btn btn-primary" id="saveBtn">
+          Simpan
+        </button>
+      </div>
+    </div>
+
+    <div class="map-section">
+      <div class="map-container">
+        <img src="../Home/img/map.png" class="map">
+
+          <div>
+            <h4>Mitra-1</h4>
+            <p>Kabupaten Malang</p>
+            <small>Buka: 08.00 - 22.00 PM</small>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+    const partnerCard = document.getElementById("partnerCard");
+    const saveBtn = document.getElementById("saveBtn");
+    const cancelBtn = document.getElementById("cancelBtn");
+    const btnBack = document.getElementById("btnBack");
+
+    function showPopup(title,message){
+    document.getElementById("popupTitle").textContent = title;
+    document.getElementById("popupMessage").textContent = message;
+    document.getElementById("customPopup").style.display = "flex";
+  }
+
+    function closePopup(){
+    document.getElementById("customPopup").style.display = "none";
+  }
+
+    partnerCard.addEventListener("click",()=>{
+    partnerCard.classList.toggle("active");
+  });
+
+    saveBtn.addEventListener("click",()=>{
+    showPopup(
+      "Berhasil",
+      "Mitra berhasil dipilih dan disimpan."
+    );
+  });
+
+    cancelBtn.addEventListener("click",()=>{
+    showPopup(
+      "Dibatalkan",
+      "Pemilihan mitra telah dibatalkan."
+    );
+  });
+
+    document.querySelectorAll(".tab").forEach(tab=>{
+    tab.addEventListener("click",()=>{
+
+      document
+        .querySelectorAll(".tab")
+        .forEach(t=>t.classList.remove("active"));
+
+      tab.classList.add("active");
+    });
+  });
+
+    btnBack.addEventListener("click",()=>{
+
+    if(document.referrer){
+    history.back();
+  }else{
+    window.location.href = "../Home/home.html";
+  }
+
+  });
+
+</script>
+
+<div id="customPopup" class="custom-popup">
+  <div class="popup-content">
+    <h3 id="popupTitle">Berhasil</h3>
+    <p id="popupMessage">Data berhasil disimpan</p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+</body>
+</html>

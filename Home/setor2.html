@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sukses Setor Popok - PuPoP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f7fafc;
+      color: #2d3748;
+      padding-bottom: 40px;
+    }
+
+    .header-wrapper {
+      background: #2BB6C4;
+      padding: 24px;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.08);
+    }
+
+    .header-card {
+      background: white;
+      border-radius: 24px;
+      height: 73px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 30px;
+    }
+
+    .back-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #EAF9FA;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #2BB6C4;
+      transition: background 0.2s;
+    }
+
+    .back-btn:hover {
+      background-color: #d1f0f2;
+    }
+
+    .header-text h2 {
+      color: #2BB6C4;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .header-text p {
+      color: #718096;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .content-container {
+      max-width: 1000px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .success-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 24px;
+      padding: 50px 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      text-align: center;
+    }
+
+    .mascot-img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .success-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 10px;
+    }
+
+    .success-subtitle {
+      font-size: 14px;
+      color: #4A5568;
+      margin-bottom: 35px;
+    }
+
+    .section-title-center {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #00796B;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 25px;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+
+    .column-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 25px;
+      margin-bottom: 12px;
+    }
+
+    .label-muted {
+      font-size: 14px;
+      color: #718096;
+    }
+
+    .value-bold {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a202c;
+    }
+
+    .label-teal {
+      font-size: 13px;
+      font-weight: 700;
+      color: #00796B;
+      text-transform: uppercase;
+    }
+
+    .info-box {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 22px;
+      min-height: 85px;
+      display: flex;
+      align-items: center;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .total-box-style {
+      background-color: #F0F9FA;
+      justify-content: space-between;
+    }
+
+    .total-box-style .box-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a202c;
+    }
+
+    .total-box-style .box-val {
+      font-size: 20px;
+      font-weight: 700;
+      color: #00796B;
+    }
+
+    .location-box-style {
+      background-color: #F4F5F7;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .loc-icon {
+      color: #004D40;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .loc-text h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 4px;
+    }
+
+    .loc-text p {
+      font-size: 12px;
+      color: #4A5568;
+      line-height: 1.5;
+    }
+
+    .btn-selesai {
+      display: inline-block;
+      width: 100%;
+      max-width: 320px;
+      background-color: #38C6D5;
+      color: white;
+      border: none;
+      padding: 16px 0;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .btn-selesai:hover {
+      background-color: #2bb6c4;
+    }
+
+    @media (max-width: 768px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .column-header {
+        height: auto;
+        margin-bottom: 6px;
+      }
+      .success-card {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header-wrapper">
+  <div class="header-card">
+    <button class="back-btn" id="btnBack" aria-label="Kembali" onclick="window.location.href = '../Home/setor1.html'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+    </button>
+    <div class="header-text">
+      <h2>Setor Popok</h2>
+      <p>Setor popokmu disini untuk masa depan bumi yang lebih hijau.</p>
+    </div>
+  </div>
+</div>
+
+<div class="content-container">
+  <div class="success-card">
+
+    <img src="../Home/img/gamm.png" alt="Mascot PuPoP" class="mascot-img" style="height: 200px; width: 200px;">
+
+    <h2 class="success-title">Sukses Setor Popok</h2>
+    <p class="success-subtitle">Yeayy, terima kasih sudah menyetorkan popok untuk bumi yang lebih hijau.</p>
+
+    <div class="section-title-center">Detail Transaksi</div>
+
+    <div class="details-grid">
+
+      <div class="column-wrapper">
+        <div class="column-header">
+          <span class="label-muted">Jumlah setor popok</span>
+          <span class="value-bold" id="displayJumlah">0 Pcs</span>
+        </div>
+        <div class="info-box total-box-style">
+          <span class="box-label">Total Setor Popok</span>
+          <span class="box-val" id="displayTotal">0 Pcs</span>
+        </div>
+      </div>
+
+      <div class="column-wrapper">
+        <div class="column-header">
+          <span class="label-teal">Lokasi Setor</span>
+        </div>
+        <div class="info-box location-box-style">
+          <div class="loc-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+          </div>
+          <div class="loc-text">
+            <h4>Mitra 2 &ndash; Kec. Mojolangu</h4>
+            <p>Jl. In dulu aja, No. 69, Malang Utara, Jawa Timur</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button type="button" class="btn-selesai" id="btnSelesai">Selesai</button>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const storedAmount = sessionStorage.getItem('jumlahSetor') || '5, 00';
+
+    const displayJumlah = document.getElementById('displayJumlah');
+    const displayTotal = document.getElementById('displayTotal');
+
+    displayJumlah.textContent = storedAmount + " Pcs";
+    displayTotal.textContent = storedAmount + " Pcs";
+
+    const btnBack = document.getElementById('btnBack');
+    const btnSelesai = document.getElementById('btnSelesai');
+
+    btnBack.addEventListener("click", function() {
+      window.history.back();
+    });
+
+    btnSelesai.addEventListener("click", function() {
+      sessionStorage.removeItem('jumlahSetor');
+      window.location.href = "../Home/home.html";
+    });
+  });
+</script>
+</body>
+</html>

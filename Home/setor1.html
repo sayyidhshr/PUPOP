@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scan QR Setor Popok - PuPoP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f7fafc;
+      color: #2d3748;
+      padding-bottom: 40px;
+    }
+
+    .header-wrapper {
+      background: #2BB6C4;
+      padding: 24px;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.08);
+    }
+
+    .header-card {
+      background: white;
+      border-radius: 24px;
+      height: 73px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 30px;
+    }
+
+    .back-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #EAF9FA;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #2BB6C4;
+      transition: background 0.2s;
+    }
+
+    .back-btn:hover {
+      background-color: #d1f0f2;
+    }
+
+    .header-text h2 {
+      color: #2BB6C4;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .header-text p {
+      color: #718096;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .content-container {
+      max-width: 1000px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 24px;
+      padding: 35px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .left-card .image-container {
+      width: 100%;
+      height: 270px;
+      border-radius: 24px;
+      overflow: hidden;
+      background-color: #f0f4f8;
+      margin-bottom: 24px;
+    }
+
+    .left-card .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .left-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .left-card p {
+      font-size: 13px;
+      color: #718096;
+      line-height: 1.6;
+    }
+
+    .right-card {
+      align-items: center;
+      text-align: center;
+    }
+
+    .right-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 6px;
+    }
+
+    .right-card p.scan-instruction {
+      font-size: 13px;
+      color: #a0aec0;
+      max-width: 260px;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+
+    .qr-scanner-box {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .qr-scanner-box::before,
+    .qr-scanner-box::after,
+    .qr-frame-bottom::before,
+    .qr-frame-bottom::after {
+      content: '';
+      position: absolute;
+      width: 45px;
+      height: 45px;
+      border-color: #38C6D5;
+      border-style: solid;
+      border-width: 0;
+    }
+
+    .qr-scanner-box::before { top: 0; left: 0; border-top-width: 5px; border-left-width: 5px; border-top-left-radius: 24px; }
+    .qr-scanner-box::after { top: 0; right: 0; border-top-width: 5px; border-right-width: 5px; border-top-right-radius: 24px; }
+    .qr-frame-bottom::before { bottom: 0; left: 0; border-bottom-width: 5px; border-left-width: 5px; border-bottom-left-radius: 24px; }
+    .qr-frame-bottom::after { bottom: 0; right: 0; border-bottom-width: 5px; border-right-width: 5px; border-bottom-right-radius: 24px; }
+
+    .qr-image {
+      width: 175px;
+      height: 175px;
+      object-fit: contain;
+    }
+
+    .delayed-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      pointer-events: none;
+    }
+
+    .delayed-container.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .activity-info {
+      font-size: 13px;
+      color: #718096;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .activity-info strong {
+      color: #4A5568;
+      font-weight: 700;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background-color: #38C6D5;
+      color: white;
+      border: none;
+      padding: 16px 0;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .btn-submit:hover {
+      background-color: #2bb6c4;
+    }
+
+    @media (max-width: 768px) {
+      .main-grid { grid-template-columns: 1fr; gap: 20px; }
+      .card { padding: 24px; }
+      .left-card .image-container { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header-wrapper">
+  <div class="header-card">
+    <button class="back-btn" id="btnBack" aria-label="Kembali" onclick="window.location.href = '../Home/setor.html'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+    </button>
+    <div class="header-text">
+      <h2>Setor Popok</h2>
+      <p>Setor popokmu disini untuk masa depan bumi yang lebih hijau.</p>
+    </div>
+  </div>
+</div>
+
+<div class="content-container">
+  <div class="main-grid">
+
+    <div class="card left-card">
+      <div class="image-container">
+        <img src="../Home/img/pampers.png" alt="Mulai Perubahan" id="imgMulaiPerubahan">
+      </div>
+      <h3>Mulai Perubahan Sekarang</h3>
+      <p>Setiap popok yang Anda setor akan diolah kembali menjadi produk bermanfaat, mengurangi limbah di TPA kita.</p>
+    </div>
+
+    <div class="card right-card">
+      <h3>Scan Kode</h3>
+      <p class="scan-instruction">Scan qr di bawah untuk melakukan setor pada mitra</p>
+
+      <div class="qr-scanner-box">
+        <img src="../Home/img/qr.png" alt="QR Code" class="qr-image" id="imgQRCode">
+        <div class="qr-frame-bottom"></div>
+      </div>
+
+      <div class="delayed-container" id="delayedContent">
+        <div class="activity-info">
+          <div>Aktivitas: <strong>Setor Popok</strong></div>
+          <div>Jumlah: <strong id="displayAmount">0 Pcs</strong></div>
+        </div>
+        <button type="button" class="btn-submit" id="btnSetorSelesai">Setor Sekarang</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const btnBack = document.getElementById('btnBack');
+    const delayedContent = document.getElementById('delayedContent');
+    const btnSetorSelesai = document.getElementById('btnSetorSelesai');
+    const displayAmount = document.getElementById('displayAmount');
+
+    const storedQty = sessionStorage.getItem('jumlahSetor') || '5, 00';
+
+    displayAmount.textContent = storedQty + " Pcs";
+
+    btnBack.addEventListener("click", function() {
+      window.history.back();
+    });
+
+    setTimeout(function() {
+      delayedContent.classList.add('show');
+    }, 5000);
+
+    btnSetorSelesai.addEventListener("click", function() {
+      window.location.href = "../Home/setor2.html";
+    });
+  });
+</script>
+</body>
+</html>
